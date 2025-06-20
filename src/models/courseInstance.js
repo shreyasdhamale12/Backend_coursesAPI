@@ -16,4 +16,4 @@ const courseInstanceSchema = new mongoose.Schema({
     }]
 });
 
-module.exports = mongoose.Schema("CourseInstance", courseInstanceSchema);
+module.exports = mongoose.model("CourseInstance", courseInstanceSchema);
