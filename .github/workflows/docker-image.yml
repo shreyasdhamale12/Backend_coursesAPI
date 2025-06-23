@@ -12,10 +12,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: ✅ Debug: List project directory
+      - name: Debug: List project directory
         run: ls -R .
 
-      - name: ✅ Debug: Show Dockerfile content
+      - name: Debug: Show Dockerfile content
         run: cat Dockerfile
 
       - name: Log in to DockerHub
