@@ -1,18 +1,25 @@
 const Course = require('../models/course');
-const courseInstance = require('../models/courseInstance');
 const CourseInstance = require('../models/courseInstance');
 
 exports.createInstance = async (req, res) => {
-    const {year, semester, courseId} = req.body;
+    try {
+        const { year, semester, courseId } = req.body;
 
-    const course = await Course.findOne({courseId});
-    if(!course){
-        res.status(404).json({error: "Course not found"})
+        const course = await Course.findOne({ courseId });
+        if (!course) {
+            return res.status(404).json({ error: "Course not found" });
+        }
+
+        const instance = new CourseInstance({ year, semester, courseId });
+        await instance.save();
+
+        res.status(201).json(instance);
+    } catch (err) {
+        console.error("Error creating instance:", err);
+        res.status(500).json({ error: "Server error" });
     }
-    const instance = new CourseInstance({year, semester, courseId});
-    await instance.save(); 
-    res.status(201).json(instance);
 }
+
 
 exports.getInstanceByYearSemester = async (req, res) => {
     const {year, semester} = req.params;
@@ -31,7 +38,7 @@ exports.getInstanceDetails = async (req, res) => {
 
 exports.deleteInstance = async (req, res) => {
     const {year, semester, courseId} = req.params;
-    const result = await courseInstance.findOneAndDelete({year, semester, courseId});
+    const result = await CourseInstance.findOneAndDelete({year, semester, courseId});
     if(!result){
         return res.status(404).json({error: "Instance not Found while deleting"})
     }

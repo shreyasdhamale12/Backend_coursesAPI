@@ -10,7 +10,7 @@ const courseInstanceSchema = new mongoose.Schema({
         required: true
     },
     courseId:[{
-        type: Number,
+        type: String,
         required: true,
         ref: "Course"
     }]
