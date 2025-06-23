@@ -2,6 +2,8 @@
 
 This is the backend for the CoursesAPI project, built with the MERN stack. It provides RESTful APIs for managing courses.
 
+⚠️ Note: I have been actively learning Java Spring Boot, but due to limited time and familiarity, I chose to use Express.js (Node.js) for this project to focus on delivering the required backend functionality effectively. That’s the reason I built the API using Express.js, which I’m currently more comfortable with, especially within the MERN stack.
+
 📽️ Postman Testing Video: https://drive.google.com/file/d/1VlpwQtiJ5YhDRpSoTyRiFvRIEbkIndGC/view?usp=sharing
 
 ## Features
